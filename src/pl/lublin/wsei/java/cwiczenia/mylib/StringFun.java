@@ -1,7 +1,14 @@
 package pl.lublin.wsei.java.cwiczenia.mylib;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Locale;
+
 public class StringFun {
 
+    public static boolean isPalindrome(String word){
+        return false;
+    }
 
     public static String anarchize(String text){
         String result = "";
@@ -17,6 +24,16 @@ public class StringFun {
             male=!male;
         }
     return result;
+    }
+
+    public static String camelize(String tekst){
+        String[] tokens = StringUtils.split(StringUtils.normalizeSpace(tekst));
+        if (tokens.length == 0) return "";
+        String result = tokens[0].toLowerCase();
+        for (int i = 1; i < tokens.length; i++){
+            result  +=  StringUtils.capitalize(tokens[i].toUpperCase());
+        }
+        return result;
     }
 
 }

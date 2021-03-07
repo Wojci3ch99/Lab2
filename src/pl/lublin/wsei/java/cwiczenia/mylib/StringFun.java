@@ -3,6 +3,7 @@ package pl.lublin.wsei.java.cwiczenia.mylib;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class StringFun {
 
@@ -56,6 +57,22 @@ public class StringFun {
             result  +=  StringUtils.uncapitalize(tokens[i].toUpperCase());
         }
         return result;
+    }
+    public static String Shuffle(String tekst) {
+        String oryginal = tekst;
+        String nowy ="";
+        char znak;
+        int rozmiar;
+        Random random = new Random();
+        while(oryginal.length() > 0){
+            rozmiar = oryginal.length();
+            int i = random.nextInt(rozmiar);
+            znak = oryginal.charAt(i);
+            oryginal = oryginal.substring(0, i) + oryginal.substring(i+1);
+            nowy += znak;
+
+        }
+        return nowy;
     }
 
 

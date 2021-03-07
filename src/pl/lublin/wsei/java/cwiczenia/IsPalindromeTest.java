@@ -9,9 +9,9 @@ public class IsPalindromeTest {
         Scanner scn = new Scanner(System.in);
         do {
             System.out.println("Podaj tekst do sprwawdzania (0, jak Ci się znudzi): ");
-            String tekst = scn.next();
+            String tekst = scn.nextLine();
             if (tekst.equals("0")) break;
-            System.out.print("Tekst: " + tekst + " " +
+            System.out.print("Tekst: \' " + tekst + "\' " +
                     (StringFun.isPalindrome(tekst) ? "" : "nie ") + "jest palindromem ");
         } while(true);
     }

@@ -6,8 +6,21 @@ import java.util.Locale;
 
 public class StringFun {
 
-    public static boolean isPalindrome(String word){
-        return false;
+    public static boolean isPalindrome(String tekst){
+    boolean result = false;
+    tekst = tekst.toLowerCase();
+    tekst = tekst.replace (" ", "");
+
+        String spr = "";
+
+        char [] charList = tekst.toCharArray();
+        for (int i = tekst.length()-1; i>=0; i--){
+            spr += charList[i];
+        }
+        if(tekst.equals(spr)){
+            result = true;
+        }
+        return result;
     }
 
     public static String anarchize(String text){
@@ -31,9 +44,19 @@ public class StringFun {
         if (tokens.length == 0) return "";
         String result = tokens[0].toLowerCase();
         for (int i = 1; i < tokens.length; i++){
-            result  +=  StringUtils.capitalize(tokens[i].toUpperCase());
+            result  +=  StringUtils.capitalize(tokens[i]);
         }
         return result;
     }
+
+    public static String decamelize(String tekst2){
+        String[] tokens = StringUtils.split(StringUtils.normalizeSpace(tekst2));
+        String result = "";
+        for (int i = 0; i < tokens.length; i++){
+            result  +=  StringUtils.uncapitalize(tokens[i].toUpperCase());
+        }
+        return result;
+    }
+
 
 }
